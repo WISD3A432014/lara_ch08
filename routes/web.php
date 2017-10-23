@@ -63,12 +63,17 @@ Route::group(['prefix' => 'student'],function(){
     //})->where(['subject' => '(chinese|english|math)']);
 //});
 //練習七: 路由命名
-Route::get('{student_no}',['as' => 'student', 'uses' => function ($student_no) {
-    return '學號：' . $student_no;
-}]);
-Route::get('{student_no}/score/{subject?}',['as' => 'student.score',
-    'uses' => function ($student_no, $subject = null) {
-        return '學號：' . $student_no . '的' . ((is_null($subject)) ? '所有科目' : $subject) . '成績';
-    }])->where(['subject' => '(chinese|english|math)']);
+//Route::get('{student_no}',['as' => 'student', 'uses' => function ($student_no) {
+    //return '學號：' . $student_no;
+//}]);
+//Route::get('{student_no}/score/{subject?}',['as' => 'student.score',
+    //'uses' => function ($student_no, $subject = null) {
+        //return '學號：' . $student_no . '的' . ((is_null($subject)) ? '所有科目' : $subject) . '成績';
+    //}])->where(['subject' => '(chinese|english|math)']);
+//});
+//練習九: 修改路由，使之可執行StudentController內的getStudentData及getStudentScore函數
+    Route::get('{student_no}',['as' => 'student', 'uses' => 'StudentController@getStudentData']);
+    Route::get('{student_no}/score/{subject?}',['as' => 'student.score',
+        'uses' => 'StudentController@getStudentScore'])->where(['subject' => '(chinese|english|math)']);
 });
 
