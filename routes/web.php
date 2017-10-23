@@ -42,7 +42,7 @@
 //}) -> where(['student_no' => 's[0-9]{10}','subject' => '(chinese|english|math)']);
 
 //練習五: 用Route的param方法替常用的參數統一限制
-//Route::pattern('student_no','s[0-9]{10}');
+Route::pattern('student_no','s[0-9]{10}');
 //Route::get('student/{student_no}',function ($student_no){
    // return '學號：'.$student_no;
 //});
@@ -51,7 +51,7 @@
 //}) -> where(['subject' => '(chinese|english|math)']);
 
 //練習六: 路由群組_透過prefix前綴，將網址前套上student
-//Route::group(['prefix' => 'student'],function(){
+Route::group(['prefix' => 'student'],function(){
     //Route::get('{student_no}', function ($student_no) {
         //return '學號：' . $student_no;
     //});
