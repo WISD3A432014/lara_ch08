@@ -11,6 +11,9 @@
 |
 */
 
+//練習八: 修改根路由'/'，使之可執行HomeController的indexc函數
+Route::get('/', 'HomeController@indexc');
+
 //Route::get('/', function () {
    // return view('welcome');
 //});
@@ -68,3 +71,4 @@ Route::get('{student_no}/score/{subject?}',['as' => 'student.score',
         return '學號：' . $student_no . '的' . ((is_null($subject)) ? '所有科目' : $subject) . '成績';
     }])->where(['subject' => '(chinese|english|math)']);
 });
+
