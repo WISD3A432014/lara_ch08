@@ -77,4 +77,8 @@ Route::group(['prefix' => 'student'],function(){
         'uses' => 'StudentController@getStudentScore'])->where(['subject' => '(chinese|english|math)']);
 });
 //練習十: 新增路由'cool'
-Route::get('cool', 'Cool\TestController@indexc');
+//Route::get('cool', 'Cool\TestController@indexc');
+//練習十: 修改路由'cool'，使之加入namespace路由'Cool'當中
+Route::group(['namespace' => 'Cool'],function (){
+    Route::get('cool', 'TestController@indexc');
+});
