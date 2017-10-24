@@ -12,7 +12,7 @@
 */
 
 //練習八: 修改根路由'/'，使之可執行HomeController的indexc函數
-Route::get('/', 'HomeController@indexc');
+//oute::get('/', 'HomeController@indexc');
 
 //Route::get('/', function () {
    // return view('welcome');
@@ -45,7 +45,7 @@ Route::get('/', 'HomeController@indexc');
 //}) -> where(['student_no' => 's[0-9]{10}','subject' => '(chinese|english|math)']);
 
 //練習五: 用Route的param方法替常用的參數統一限制
-Route::pattern('student_no','s[0-9]{10}');
+//Route::pattern('student_no','s[0-9]{10}');
 //Route::get('student/{student_no}',function ($student_no){
    // return '學號：'.$student_no;
 //});
@@ -54,7 +54,7 @@ Route::pattern('student_no','s[0-9]{10}');
 //}) -> where(['subject' => '(chinese|english|math)']);
 
 //練習六: 路由群組_透過prefix前綴，將網址前套上student
-Route::group(['prefix' => 'student'],function(){
+//Route::group(['prefix' => 'student'],function(){
     //Route::get('{student_no}', function ($student_no) {
         //return '學號：' . $student_no;
     //});
@@ -72,13 +72,14 @@ Route::group(['prefix' => 'student'],function(){
     //}])->where(['subject' => '(chinese|english|math)']);
 //});
 //練習九: 修改路由，使之可執行StudentController內的getStudentData及getStudentScore函數
-    Route::get('{student_no}',['as' => 'student', 'uses' => 'StudentController@getStudentData']);
-    Route::get('{student_no}/score/{subject?}',['as' => 'student.score',
-        'uses' => 'StudentController@getStudentScore'])->where(['subject' => '(chinese|english|math)']);
-});
+    //Route::get('{student_no}',['as' => 'student', 'uses' => 'StudentController@getStudentData']);
+    //Route::get('{student_no}/score/{subject?}',['as' => 'student.score',
+        //'uses' => 'StudentController@getStudentScore'])->where(['subject' => '(chinese|english|math)']);
+//});
 //練習十: 新增路由'cool'
 //Route::get('cool', 'Cool\TestController@indexc');
 //練習十: 修改路由'cool'，使之加入namespace路由'Cool'當中
-Route::group(['namespace' => 'Cool'],function (){
-    Route::get('cool', 'TestController@indexc');
-});
+//Route::group(['namespace' => 'Cool'],function (){
+    //Route::get('cool', 'TestController@indexc');
+//});
+Route::get('/board', 'BoardController@getIndex');
