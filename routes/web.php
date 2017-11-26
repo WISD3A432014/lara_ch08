@@ -90,6 +90,11 @@ Route::pattern('student_no','s[0-9]{10}');
 Route::group(['namespace' => 'Cool'],function (){
     Route::get('cool', 'TestController@indexc');
 });
+*/
+//ch07練習二 : 增加路由'/board'，使之可執行BoardController的getIndex方法
+Route::get('/board', 'BoardController@getIndex');
+Route::get('/score', 'StudentController@getStudentScore');
+Route::group(['prefix' => 'student'],function() {
 //練習二 CH7
 Route::group(['prefix' => 'student'],function() {
 //ch07練習三-7 測試http://localhost:8000/student/s9876543210
@@ -98,8 +103,8 @@ Route::group(['prefix' => 'student'],function() {
     Route::get('{student_no}/score/{subject?}', ['as' => 'student.score',
         'uses' => 'StudentController@getStudentScore'])->where(['subject' => '(chinese|english|math)']);
 });
-Route::get('/board', 'BoardController@getIndex');
-*/
+});
+
 Route::get('/adduser',function (){
     $user = new \App\User();
     $user -> name = "user3";
