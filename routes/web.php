@@ -83,6 +83,7 @@ Route::get('student/{student_no}/score',function ($student_no){
 //Route::group(['namespace' => 'Cool'],function (){
     //Route::get('cool', 'TestController@indexc');
 //});
+/*
 //練習五
 Route::pattern('student_no','s[0-9]{10}');
 //練習十
@@ -98,3 +99,11 @@ Route::group(['prefix' => 'student'],function() {
         'uses' => 'StudentController@getStudentScore'])->where(['subject' => '(chinese|english|math)']);
 });
 Route::get('/board', 'BoardController@getIndex');
+*/
+Route::get('/adduser',function (){
+    $user = new \App\User();
+    $user -> name = "user1";
+    $user -> email = "user1@test.com";
+    $user -> password = "user1pass";
+    $user -> save();
+});
