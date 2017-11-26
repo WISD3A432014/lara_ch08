@@ -10,4 +10,8 @@ class Student extends Model
     public function score(){
         return $this->hasOne(ScoreEloquent::class);
     }
+    //一個學生有一個使用者帳號 (a Student belongTo a User)
+    public function user(){
+        return $this->belongsTo(UserEloquent::class);
+    }
 }
