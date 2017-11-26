@@ -107,3 +107,19 @@ Route::get('/adduser',function (){
     $user -> password = "user1pass";
     $user -> save();
 });
+Route::get('/addstudent',function (){
+    $student = new \App\Student();
+    $student -> user_id = "1";
+    $student -> no = "user1@test.com";
+    $student -> tel = "0912345678";
+    $student -> save();
+});
+Route::get('/addscore',function (){
+    $score = new \App\Score();
+    $score -> student_id = "1";
+    $score -> chinese = "60";
+    $score -> english = "60";
+    $score -> math = "60";
+    $score -> total = "180";
+    $score -> save();
+});
