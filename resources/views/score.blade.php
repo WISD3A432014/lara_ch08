@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('title','排行榜')
+
+@section('content')
 
 <div class="container">
 	<div class="page-header">
