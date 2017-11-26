@@ -9,6 +9,9 @@
         </div>
         <div class="row">
             <p>
+                信箱：user1@test.com
+            </p>
+            <p>
                 學號：{{ Sstudent_no }}
             </p>
             <p>
