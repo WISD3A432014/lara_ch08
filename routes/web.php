@@ -14,17 +14,18 @@
 //練習八: 修改根路由'/'，使之可執行HomeController的indexc函數
 //oute::get('/', 'HomeController@indexc');
 
-//Route::get('/', function () {
-   // return view('welcome');
-//});
-
-//練習一: 顯示學生的資料與成績
-//Route::get('student/{student_no}',function ($student_no){
-    //return '學號：'.$student_no;
-//});
-//Route::get('student/{student_no}/score',function ($student_no){
-   // return '學號：'.$student_no.'的所有成績';
-//});
+Route::get('/', function () {
+  return view('welcome');
+});
+/*
+練習一: 顯示學生的資料與成績
+Route::get('student/{student_no}',function ($student_no){
+    return '學號：'.$student_no;
+});
+Route::get('student/{student_no}/score',function ($student_no){
+    return '學號：'.$student_no.'的所有成績';
+});
+*/
 
 //練習二: 提供學生查詢自己的成績
 //Route::get('student/{student_no}/score/{subject}', function ($student_no,$subject){
@@ -82,4 +83,18 @@
 //Route::group(['namespace' => 'Cool'],function (){
     //Route::get('cool', 'TestController@indexc');
 //});
+//練習五
+Route::pattern('student_no','s[0-9]{10}');
+//練習十
+Route::group(['namespace' => 'Cool'],function (){
+    Route::get('cool', 'TestController@indexc');
+});
+//練習二 CH7
+Route::group(['prefix' => 'student'],function() {
+//ch07練習三-7 測試http://localhost:8000/student/s9876543210
+    Route::get('{student_no}', ['as' => 'student', 'uses' => 'StudentController@getStudentData']);
+//ch07練習三-7 http://localhost:8000/student/s9999999999/score/math
+    Route::get('{student_no}/score/{subject?}', ['as' => 'student.score',
+        'uses' => 'StudentController@getStudentScore'])->where(['subject' => '(chinese|english|math)']);
+});
 Route::get('/board', 'BoardController@getIndex');

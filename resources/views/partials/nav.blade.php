@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="board.blade.php">HelloLaravel</a>
+        <a class="navbar-brand" href="{{ url('/')}}">HelloLaravel</a>
         <ul class="nav navbar-nav">
             <li>
                 <a href="board.blade.php">排行榜</a>
